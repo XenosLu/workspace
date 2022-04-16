@@ -1,1 +1,3 @@
-requests_mock
+jinja2
+dnspython
+psycopg2
