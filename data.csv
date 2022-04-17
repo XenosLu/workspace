@@ -7,6 +7,7 @@ numpy-fat,build-base,,,,,,,,,
 pandas,gcc musl-dev g++,,,,,,,build-base [failure],build-essential [failure],
 oss2,gcc musl-dev libffi-dev,,,,,,,,build-essential libffi-dev,build-base libffi-dev
 cffi,gcc musl-dev libffi-dev,,,,,,,,build-essential libffi-dev,build-base libffi-dev
+selenium,gcc musl-dev libffi-dev,,,,,,,,build-essential libffi-dev,build-base libffi-dev
 twine,gcc musl-dev libffi-dev,,,,,,,,build-essential libffi-dev,
 jira,gcc musl-dev libffi-dev,,,,,,,,build-essential libffi-dev,
 pylint,,,,gcc musl-dev,gcc musl-dev,,,,,
