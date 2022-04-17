@@ -14,11 +14,11 @@ pycryptodome,gcc musl-dev ,,,,,,,,
 Pillow,,,gcc musl-dev zlib-dev jpeg-dev,gcc musl-dev zlib-dev jpeg-dev,,,gcc musl-dev zlib zlib-dev jpeg-dev,gcc libc-dev libz-dev libjpeg-dev,
 opencv-python,gcc musl-dev g++ samurai linux-headers [failure],,,,,,build-base [failure],build-essential [failure],"ENV CMAKE_MAKE_PROGRAM ""ninja"""
 opencv-python-headless,gcc musl-dev g++ samurai linux-headers [failure],,,,,,build-base [failure],build-essential [failure],ln -s /usr/bin/ninja /usr/bin/ninja-build
-jinja2,,,,,,,,,
-dnspython,,,,,,,,,
 IMAPClient,,,,,,,,,
 prettytable,,,,,,,,,
 psycopg2,libpq-dev gcc musl-dev ,build-essential libpq-dev,,,,,,,libpq-dev not exists in alpine3.14
+jinja2,,,,,,,,,
+dnspython,,,,,,,,,
 PyYAML,,,,,,,,,
 requests,,,,,,,,,
 slack-sdk,,,,,,,,,
