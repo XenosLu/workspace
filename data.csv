@@ -5,6 +5,7 @@ numpy==1.17.3,,,,,ncurses-dev,,build-base [failure],libncurses-dev,libncurses-de
 numpy,gcc musl-dev g++,,,,,,build-base [failure],build-essential [failure],py36/py37 don't need g++
 numpy-fat,build-base,,,,,,,,
 pandas,gcc musl-dev g++,,,,,,build-base [failure],build-essential [failure],
+oss2,gcc musl-dev libffi-dev,,,,,,,build-essential libffi-dev,build-base libffi-dev
 cffi,gcc musl-dev libffi-dev,,,,,,,build-essential libffi-dev,build-base libffi-dev
 twine,gcc musl-dev libffi-dev,,,,,,,build-essential libffi-dev,
 jira,gcc musl-dev libffi-dev,,,,,,,build-essential libffi-dev,
@@ -15,10 +16,9 @@ Pillow,,,gcc musl-dev zlib-dev jpeg-dev,gcc musl-dev zlib-dev jpeg-dev,,,gcc mus
 opencv-python,gcc musl-dev g++ samurai linux-headers [failure],,,,,,build-base [failure],build-essential [failure],"ENV CMAKE_MAKE_PROGRAM ""ninja"""
 opencv-python-headless,gcc musl-dev g++ samurai linux-headers [failure],,,,,,build-base [failure],build-essential [failure],ln -s /usr/bin/ninja /usr/bin/ninja-build
 Tea,,,,,,,,,
-hvac,,,,,,,,,
-oss2,,,,,,,,,
-colorama,,,,,,,,,
 psycopg2,libpq-dev gcc musl-dev ,build-essential libpq-dev,,,,,,,libpq-dev not exists in alpine3.14
+hvac,,,,,,,,,
+colorama,,,,,,,,,
 IMAPClient,,,,,,,,,
 prettytable,,,,,,,,,
 jinja2,,,,,,,,,
