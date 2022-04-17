@@ -16,7 +16,7 @@ opencv-python,gcc musl-dev g++ samurai linux-headers [failure],,,,,,build-base [
 opencv-python-headless,gcc musl-dev g++ samurai linux-headers [failure],,,,,,build-base [failure],build-essential [failure],ln -s /usr/bin/ninja /usr/bin/ninja-build
 jinja2,,,,,,,,,
 dnspython,,,,,,,,,
-psycopg2,libpq-dev gcc musl-dev ,build-essential libpq-dev,,,,,,,alpine3.14 ÕÒ²»µ½°ülibpq-dev
+psycopg2,libpq-dev gcc musl-dev ,build-essential libpq-dev,,,,,,,alpine3.14 cannot find package libpq-dev
 PyYAML,,,,,,,,,
 requests,,,,,,,,,
 slack-sdk,,,,,,,,,
