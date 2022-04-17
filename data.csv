@@ -16,7 +16,7 @@ opencv-python,gcc musl-dev g++ samurai linux-headers [failure],,,,,,build-base [
 opencv-python-headless,gcc musl-dev g++ samurai linux-headers [failure],,,,,,build-base [failure],build-essential [failure],ln -s /usr/bin/ninja /usr/bin/ninja-build
 jinja2,,,,,,,,,
 dnspython,,,,,,,,,
-psycopg2,libpq-dev gcc,libpq-dev,,,,,,,
+psycopg2,libpq-dev gcc,build-essential libpq-dev,,,,,,,
 PyYAML,,,,,,,,,
 requests,,,,,,,,,
 slack-sdk,,,,,,,,,
