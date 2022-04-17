@@ -1,2 +1,4 @@
-IMAPClient
-prettytable
+Tea
+oss2
+hvac
+colorama
