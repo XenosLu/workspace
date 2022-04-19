@@ -22,7 +22,7 @@ jobs:
         uses: actions/checkout@v3
       - run: git show |grep diff
       - id: set-matrix
-        run: echo "::set-output name=matrix::{\"include\":[{\"project\":\"foo\",{\"project\":\"bar\"}]}"
+        run: echo "::set-output name=matrix::{\"include\":[{\"project\":\"foo\"},{\"project\":\"bar\"}]}"
         # run: echo "::set-output name=matrix::{\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}"
         # run: echo "::set-output name=matrix::{\"include\":[\"foo\",\"bar\"]}"
         # run: echo "::set-output name=matrix::[\"foo\",\"bar\"]"
