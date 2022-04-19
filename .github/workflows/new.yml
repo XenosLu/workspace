@@ -20,6 +20,8 @@ jobs:
     steps:
       - name: Clone repository
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
       - run: git diff-tree HEAD HEAD~1 --name-only
       - run: git diff-tree HEAD HEAD~1 --name-only -r
       - run: git show HEAD
