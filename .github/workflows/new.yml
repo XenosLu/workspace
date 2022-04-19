@@ -1,4 +1,4 @@
-name: build docker image
+name: new
 
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
@@ -26,6 +26,6 @@ jobs:
     strategy:
       matrix: ${{fromJSON(needs.job1.outputs.matrix)}}
     steps:
-      - run: echo ${{ matrix }}
+      - run: echo ${{ toJSON(matrix) }}
 
 
