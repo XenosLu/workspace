@@ -13,8 +13,6 @@ on:
 
 jobs:
 
-
-jobs:
   job1:
     runs-on: ubuntu-latest
     outputs:
