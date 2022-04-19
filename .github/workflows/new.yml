@@ -23,7 +23,8 @@ jobs:
       - run: git show |grep diff
       - id: set-matrix
         # run: echo "::set-output name=matrix::{\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}"
-        run: echo "::set-output name=matrix::{\"include\":[\"foo\",\"bar\"]}"
+        run: echo "::set-output name=matrix::{\"include\":[\"foo\",\"bar\]}"
+        # run: echo "::set-output name=matrix::{\"include\":[\"foo\",\"bar\"]}"
   job2:
     needs: job1
     runs-on: ubuntu-latest
