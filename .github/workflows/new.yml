@@ -26,6 +26,8 @@ jobs:
       - run: git diff-tree HEAD HEAD~1 --name-only -r
       - run: git show HEAD
       - run: git show |grep diff
+      - name: test
+        run: echo name=matrix::{\"include\":[[$(git diff-tree HEAD HEAD~1 --name-only | awk '{printf "{\"project\":\"%s\"},", $1}')]}
       - id: set-matrix
         # run: echo "::set-output name=matrix::{\"include\":[{\"project\":\"foo\"},{\"project\":\"bar\"}]}"
         # run: echo "::set-output name=matrix::{\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}"
