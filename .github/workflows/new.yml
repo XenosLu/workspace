@@ -28,7 +28,7 @@ jobs:
     needs: get_matrix
     runs-on: ubuntu-latest
     strategy:
-      matrix: ${{fromJSON(needs.job1.outputs.matrix)}}
+      matrix: ${{fromJSON(needs.get_matrix.outputs.matrix)}}
     steps:
       - run: echo ${{ matrix.image }}
       # - run: |
