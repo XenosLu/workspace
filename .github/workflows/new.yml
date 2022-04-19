@@ -34,11 +34,11 @@ jobs:
       - run: echo ${{ matrix.tag }}
       - name: ${{ matrix.tag }}
         run: |
-          # if [ ! -f ${{ matrix.tag }}/Dockerfile ];then echo exit;exit 0; fi
-          echo no
+          if [ ! -f ${{ matrix.tag }}/Dockerfile ];then echo exit;exit 0; fi
           # IMAGE_NAME=${{ inputs.username }}/${GITHUB_REPOSITORY##*/}
-          IMAGE_NAME=xenocider/${GITHUB_REPOSITORY##*/}
-          echo "::set-output name=image::$IMAGE_NAME:${{ matrix.tag }}"
-          echo "$IMAGE_NAME:${{ matrix.tag }}"
+          IMAGE_NAME=xenocider/${GITHUB_REPOSITORY##*/}:${{ matrix.tag }}
+          echo "::set-output name=image::$IMAGE_NAME"
+          echo "$IMAGE_NAME"
+          docker build -t ${IMAGE_NAME}
 
 
