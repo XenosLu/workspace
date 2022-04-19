@@ -13,7 +13,7 @@ on:
 
 jobs:
 
-  job1:
+  get_matrix:
     runs-on: ubuntu-latest
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
@@ -22,16 +22,10 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 2
-      - run: git diff-tree HEAD HEAD~1 --name-only
-      - run: git diff-tree HEAD HEAD~1 --name-only -r
-      - run: git show HEAD
-      - run: git show |grep diff
-      - name: test
-        run: echo name=matrix::{\"include\":[$(git diff-tree HEAD HEAD~1 --name-only | awk '{printf "{\"image\":\"%s\"},", $1}')]}
       - id: set-matrix
         run: echo ::set-output name=matrix::{\"include\":[$(git diff-tree HEAD HEAD~1 --name-only | awk '{printf "{\"image\":\"%s\"},", $1}')]}
-  job2:
-    needs: job1
+  build:
+    needs: get_matrix
     runs-on: ubuntu-latest
     strategy:
       matrix: ${{fromJSON(needs.job1.outputs.matrix)}}
