@@ -32,8 +32,10 @@ jobs:
     steps:
       - run: echo ${{ matrix.image }}
       - run: |
+        echo 1
+      # - run: |
         # if [ -f ${{ matrix.image }}/Dockerfile ]; then echo ${{ matrix.image }} .; else exit; fi
-        echo no
-        echo y
+        # echo no
+        # echo y
 
 
