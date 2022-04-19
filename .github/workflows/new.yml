@@ -32,9 +32,9 @@ jobs:
       matrix: ${{fromJSON(needs.get_matrix.outputs.matrix)}}
     steps:
       - run: echo ${{ matrix.image }}
-      - run: |
-          if [ ! -f ${{ matrix.image }}/Dockerfile ];then echo exit;exit 0; fi
-          # if [ -f ${{ matrix.image }}/Dockerfile ]; then echo ${{ matrix.image }} .; else exit 0; fi
+      - name: ${{ matrix.image }}
+        run: |
+          # if [ ! -f ${{ matrix.image }}/Dockerfile ];then echo exit;exit 0; fi
           echo no
           IMAGE_NAME=${{ inputs.username }}/${GITHUB_REPOSITORY##*/}
           echo "::set-output name=image::$IMAGE_NAME:${TAG}"
