@@ -31,14 +31,10 @@ jobs:
       matrix: ${{fromJSON(needs.get_matrix.outputs.matrix)}}
     steps:
       - run: echo ${{ matrix.image }}
-      # - run: |
-        # echo 1
-      # - name: Build modify FROM to ${{ matrix.image }}
       - run: |
           echo 2
-      # - run: |
-        # if [ -f ${{ matrix.image }}/Dockerfile ]; then echo ${{ matrix.image }} .; else exit; fi
-        # echo no
-        # echo y
+          if [ -f ${{ matrix.image }}/Dockerfile ]; then echo ${{ matrix.image }} .; else exit; fi
+          echo no
+          echo y
 
 
