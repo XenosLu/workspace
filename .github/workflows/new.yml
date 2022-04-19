@@ -6,7 +6,7 @@ on:
     branches-ignore: [master]
     paths-ignore:
       - README.md
-      - .github/**
+      # - .github/**
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -18,6 +18,9 @@ jobs:
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
+      - name: Clone repository
+        uses: actions/checkout@v3
+      - run: git show |grep diff
       - id: set-matrix
         run: echo "::set-output name=matrix::{\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}"
   job2:
