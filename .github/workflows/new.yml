@@ -27,19 +27,17 @@ jobs:
       - run: git show HEAD
       - run: git show |grep diff
       - name: test
-        run: echo name=matrix::{\"include\":[$(git diff-tree HEAD HEAD~1 --name-only | awk '{printf "{\"project\":\"%s\"},", $1}')]}
+        run: echo name=matrix::{\"include\":[$(git diff-tree HEAD HEAD~1 --name-only | awk '{printf "{\"image\":\"%s\"},", $1}')]}
       - id: set-matrix
-        # run: echo "::set-output name=matrix::{\"include\":[{\"project\":\"foo\"},{\"project\":\"bar\"}]}"
-        # run: echo "::set-output name=matrix::{\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}"
-        # run: echo "::set-output name=matrix::{\"include\":[\"foo\",\"bar\"]}"
-        # run: echo "::set-output name=matrix::[\"foo\",\"bar\"]"
-        run: echo ::set-output name=matrix::{\"include\":[$(git diff-tree HEAD HEAD~1 --name-only | awk '{printf "{\"project\":\"%s\"},", $1}')]}
+        run: echo ::set-output name=matrix::{\"include\":[$(git diff-tree HEAD HEAD~1 --name-only | awk '{printf "{\"image\":\"%s\"},", $1}')]}
   job2:
     needs: job1
     runs-on: ubuntu-latest
     strategy:
       matrix: ${{fromJSON(needs.job1.outputs.matrix)}}
     steps:
-      - run: echo ${{ matrix.project }}
+      - run: echo ${{ matrix.image }}
+      - run: -|
+      if [ -f ${{ matrix.image }}/Dockerfile ]; then echo ${{ matrix.image }} .; fi
 
 
