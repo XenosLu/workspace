@@ -22,7 +22,7 @@ jobs:
   one:
     runs-on: ubuntu-latest
     container:
-      image: xenocider/image:one
+      image: xenocider/img:one
 
     steps:
       - name: One
