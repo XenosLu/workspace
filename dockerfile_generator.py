@@ -162,4 +162,3 @@ if __name__ == '__main__':
     # init_log()
     ArgMethod()
     # ArgMethod.test2()
-    # ArgMethod.export('python:3.10-alpine')
