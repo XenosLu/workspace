@@ -3,6 +3,7 @@
 import os
 import logging
 
+import numpy as np
 import pandas as pd
 from xenoslib.base import ArgMethodBase
 
@@ -96,15 +97,14 @@ class Dockerfile:
 
     def get_deps(self):
         all_deps = set()
+        df = pd.read_csv('data.csv', index_col='lib')
+        df = df.loc[:, df.columns.isin([self.base_type, self.image])]  # 筛选符合条件的列
         for lib in self.libs:
-            df = pd.read_csv('data.csv')
-            row = df[[lib.lower().startswith(x.lower()) for x in df.lib]]
-            for item in (self.base_type, self.image):
-                if row.get(item) is not None and not row.get(item).empty:
-                    # deps = row.get(item).values[0]
-                    for deps in row.get(item).values:
-                        if isinstance(deps, str):
-                            all_deps |= set(deps.split(' '))
+            deps = df[[lib.lower().startswith(x.lower()) for x in df.index]]
+            deps = set(deps.values.reshape(-1).tolist())
+            deps.discard(np.nan)
+            deps = ' '.join(deps)
+            all_deps |= set(deps.split(' '))
         return all_deps
 
     def export(self, compact=False):
@@ -153,11 +153,24 @@ class ArgMethod(ArgMethodBase):
     def test2():
         df = pd.read_csv('data.csv')
         lib = 'numpy==1.17.3'
-        row = df[[lib.startswith(x) for x in df.lib]]
-        for i in row.get('alpine').values:
-            print(i.empty)
+        datas = df[[lib.startswith(x) for x in df.lib]][['alpine', 'python:3.10-alpine']]
+        
+        # row = df[lib.str.startswith]
+        print(set(datas.values.reshape(-1).tolist()))
+
+        # df.loc[]
+        # for i in row.get('alpine').values:
+            # print(i.empty)
         # print(row.get('alpine').values[0])
         # print(row.get('alpine').values[1])
+            # df = pd.read_csv('data.csv')
+            # row = df[[lib.lower().startswith(x.lower()) for x in df.lib]]
+            # for item in (self.base_type, self.image):
+                # if row.get(item) is not None and not row.get(item).empty:
+                    # for deps in row.get(item).values:
+                        # if isinstance(deps, str):
+                            # all_deps |= set(deps.split(' '))
+        
         return
 
 
@@ -165,3 +178,4 @@ if __name__ == '__main__':
     # init_log()
     ArgMethod()
     # ArgMethod.test2()
+    # ArgMethod.export('python:3.10-alpine')
