@@ -154,23 +154,7 @@ class ArgMethod(ArgMethodBase):
         df = pd.read_csv('data.csv')
         lib = 'numpy==1.17.3'
         datas = df[[lib.startswith(x) for x in df.lib]][['alpine', 'python:3.10-alpine']]
-        
-        # row = df[lib.str.startswith]
         print(set(datas.values.reshape(-1).tolist()))
-
-        # df.loc[]
-        # for i in row.get('alpine').values:
-            # print(i.empty)
-        # print(row.get('alpine').values[0])
-        # print(row.get('alpine').values[1])
-            # df = pd.read_csv('data.csv')
-            # row = df[[lib.lower().startswith(x.lower()) for x in df.lib]]
-            # for item in (self.base_type, self.image):
-                # if row.get(item) is not None and not row.get(item).empty:
-                    # for deps in row.get(item).values:
-                        # if isinstance(deps, str):
-                            # all_deps |= set(deps.split(' '))
-        
         return
 
 
