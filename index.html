@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<script type="text/javascript" src="brython.js"></script>
+<script type="text/javascript" src="brython_stdlib.js"></script>
+    <style>
+    .codearea {
+        background-color:#000;
+        color:#fff;
+        font-family:'Oxygen Mono', Consolas, 'Liberation Mono', 'DejaVu Sans Mono', monospace;
+        font-size:14px;
+        overflow:auto
+    }
+    </style>
+</head>
+
+<body onload=brython({"debug":1}) ><!-- remove the 1 to leave debug mode -->
+    <noscript>Please enable Javascript to view this page correctly</noscript>
+
+    <textarea id="code" class="codearea" rows="20" cols="100"></textarea>
+    from browser import document
+    <br>
+    <script type="text/python3">
+        from browser import document 
+        import urllib.request
+        
+        t=urllib.request.urlopen("https://ifconfig.me")
+        res=t.read()
+        document <= res
+        document.write(res)
+        from interpreter import Interpreter
+
+        # Start an interactive interpreter in textarea with id "code"
+        Interpreter("code")
+
+    </script>
+</body>
+
+<!-- <body onload="brython(1)"> -->
+<!-- <script type="text/python"> -->
+<!-- from browser import document -->
+
+<!-- document <= "Hello" -->
+<!-- </script> -->
+<!-- </body> -->
+
+</html>
