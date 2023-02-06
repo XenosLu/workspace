@@ -23,15 +23,8 @@
     from browser import document
     <br>
     <script type="text/python3">
-        from browser import document 
-        import urllib.request
-        
-        t=urllib.request.urlopen("https://ifconfig.me")
-        res=t.read()
-        document <= res
-        document.write(res)
-        from interpreter import Interpreter
 
+        from interpreter import Interpreter
         # Start an interactive interpreter in textarea with id "code"
         Interpreter("code")
 
