@@ -110,6 +110,7 @@ class Dockerfile:
             w.write(self.generate(compact))
 
     def validate(self):
+        print('-' * 79)
         os.system('cat Dockerfile')
         return os.system('docker build .') == 0
 
