@@ -28,13 +28,11 @@ def init_log():
 
 class Dockerfile:
     images = [
-        'python:3.6-alpine',
         'python:3.7-alpine',
         'python:3.8-alpine',
         'python:3.9-alpine',
         'python:3.10-alpine',
         'python:3.11-alpine',
-        'python:3.6-slim',
         'python:3.7-slim',
         'python:3.8-slim',
         'python:3.9-slim',
