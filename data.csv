@@ -1,5 +1,5 @@
 lib,alpine,debian,python:3.10-slim,python:3.7-alpine,python:3.10-alpine,python:3.11-rc-alpine,python:3.11-rc-slim,comment
-jupyter,rust cargo,,,,,,,
+jupyter,rust cargo musl-dev,,,,,,,
 jupyter-old,gcc musl-dev libffi-dev,,,,,g++ [failure],build-essential libffi-dev [failure],python3-dev py3-pyzmq
 pyzmq,,,,,,[failure],[failure],alpine3.15/debian bullseye
 numpy==1.17.3,,,,,ncurses-dev,build-base [failure],libncurses-dev,libncurses-dev
