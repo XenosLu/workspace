@@ -33,13 +33,13 @@ class Dockerfile:
         'python:3.8-alpine',
         'python:3.9-alpine',
         'python:3.10-alpine',
-        'python:3.11-rc-alpine',
+        'python:3.11-alpine',
         'python:3.6-slim',
         'python:3.7-slim',
         'python:3.8-slim',
         'python:3.9-slim',
         'python:3.10-slim',
-        'python:3.11-rc-slim',
+        'python:3.11-slim',
     ]
     base_type = None
 
