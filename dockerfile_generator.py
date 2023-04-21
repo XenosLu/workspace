@@ -112,6 +112,7 @@ class Dockerfile:
     def validate(self):
         print('-' * 79)
         os.system('cat Dockerfile')
+        print('-' * 79)
         return os.system('docker build .') == 0
 
 
