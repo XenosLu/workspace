@@ -108,11 +108,11 @@ class Dockerfile:
     def export(self, compact=False):
         with open('Dockerfile', 'w') as w:
             w.write(self.generate(compact))
-
-    def validate(self):
         print('-' * 79)
         os.system('cat Dockerfile')
         print('-' * 79)
+
+    def validate(self):
         return os.system('docker build .') == 0
 
 
