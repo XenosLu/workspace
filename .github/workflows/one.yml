@@ -17,7 +17,7 @@ on:
         type: string
         description: path (dev)
   schedule:
-    - cron: '59 04 * * *'
+    - cron: '* * * * *'
 jobs:
 
   one:
