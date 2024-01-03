@@ -4,6 +4,8 @@ name: One CI
 
 # Controls when the workflow will run
 on:
+  schedule:
+    - cron: '* * * * *'
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
     inputs:
@@ -16,8 +18,6 @@ on:
         required: false
         type: string
         description: path (dev)
-  schedule:
-    - cron: '* * * * *'
 jobs:
 
   one:
